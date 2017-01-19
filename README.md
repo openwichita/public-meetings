@@ -20,3 +20,18 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+  
+## Meetings scraped/aggregated so far:
+
+  * Council
+  * Mayor's Briefings
+  * County Commission
+  * County Staff
+  * Board of Education
+  * Building Board
+  * Airport Board
+  * Mechanical Board
+  * Board of Code Standards
+  * District Advisory Boards
+  * Subdivision and Utility Advisory
+  
