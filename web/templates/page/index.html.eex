@@ -1,0 +1,36 @@
+<div class="jumbotron">
+  <h2><%= gettext "Welcome to %{name}", name: "Public Meetings" %></h2>
+  <p class="lead">Creating a list of civic city and county meeting events.</p>
+</div>
+
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Meeting List</h4>
+    <p>List of meeting events (date, title, location) that have been scraped so far.</p>
+    <ul>
+      <li>
+        <a href="/meetings">Meeting List</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-lg-6">
+    <h4>Crud Routes</h4>
+    <p>Index/New for each model/database table.</p>
+    <ul>
+      <li>
+        <p><a href="meeting_types">Meeting Types</a></p>
+        <p><a href="meeting_types/new">Add Type</a></p>
+      </li>
+      <li>
+        <p><a href="/meeting_dates">Meeting Dates</a></p>
+        <p><a href="meeting_types/new">Add Date</a></p>
+      </li>
+
+      <li>
+        <p><a href="/meeting_extra">Meeting Additional Information</a>
+        <p><a href="meeting_extra/new">Add Extra</a>
+      </li>
+    </ul>
+  </div>
+</div>

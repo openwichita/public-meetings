@@ -1,0 +1,32 @@
+<h2>Listing meeting dates</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Day</th>
+      <th>Year</th>
+      <th>Meeting type</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for meeting_date <- @meeting_dates do %>
+    <tr>
+      <td><%= meeting_date.month %></td>
+      <td><%= meeting_date.day %></td>
+      <td><%= meeting_date.year %></td>
+      <td><%= meeting_date.meeting_type_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: meeting_date_path(@conn, :show, meeting_date), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: meeting_date_path(@conn, :edit, meeting_date), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: meeting_date_path(@conn, :delete, meeting_date), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New meeting date", to: meeting_date_path(@conn, :new) %>

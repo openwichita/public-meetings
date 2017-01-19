@@ -1,0 +1,28 @@
+<h2>Show meeting date</h2>
+
+<ul>
+
+  <li>
+    <strong>Month:</strong>
+    <%= @meeting_date.month %>
+  </li>
+
+  <li>
+    <strong>Day:</strong>
+    <%= @meeting_date.day %>
+  </li>
+
+  <li>
+    <strong>Year:</strong>
+    <%= @meeting_date.year %>
+  </li>
+
+  <li>
+    <strong>Meeting type:</strong>
+    <%= @meeting_date.meeting_type_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: meeting_date_path(@conn, :edit, @meeting_date) %>
+<%= link "Back", to: meeting_date_path(@conn, :index) %>

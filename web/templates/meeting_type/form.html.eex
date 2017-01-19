@@ -1,0 +1,71 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :type, class: "control-label" %>
+    <%= text_input f, :type, class: "form-control" %>
+    <%= error_tag f, :type %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :subtype, class: "control-label" %>
+    <%= text_input f, :subtype, class: "form-control" %>
+    <%= error_tag f, :subtype %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :title, class: "control-label" %>
+    <%= text_input f, :title, class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, class: "control-label" %>
+    <%= textarea f, :description, class: "form-control" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :location, class: "control-label" %>
+    <%= text_input f, :location, class: "form-control" %>
+    <%= error_tag f, :location %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :hour, class: "control-label" %>
+    <%= number_input f, :hour, class: "form-control" %>
+    <%= error_tag f, :hour %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :minute, class: "control-label" %>
+    <%= number_input f, :minute, class: "form-control" %>
+    <%= error_tag f, :minute %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :duration, class: "control-label" %>
+    <%= number_input f, :duration, class: "form-control" %>
+    <%= error_tag f, :duration %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :email, class: "control-label" %>
+    <%= text_input f, :email, class: "form-control" %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :agenda, class: "control-label" %>
+    <%= text_input f, :agenda, class: "form-control" %>
+    <%= error_tag f, :agenda %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

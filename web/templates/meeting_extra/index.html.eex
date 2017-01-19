@@ -1,0 +1,30 @@
+<h2>Listing meeting extras</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+      <th>Meeting type</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for meeting_extra <- @meeting_extras do %>
+    <tr>
+      <td><%= meeting_extra.field %></td>
+      <td><%= meeting_extra.value %></td>
+      <td><%= meeting_extra.meeting_type_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: meeting_extra_path(@conn, :show, meeting_extra), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: meeting_extra_path(@conn, :edit, meeting_extra), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: meeting_extra_path(@conn, :delete, meeting_extra), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New meeting extra", to: meeting_extra_path(@conn, :new) %>
