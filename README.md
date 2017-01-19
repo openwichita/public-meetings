@@ -1,5 +1,18 @@
 # Public Meetings
 
+A project to aggregate public civic meetings available in Wichita to a single
+location. It is powered by:
+
+* Scrapers in python (check the `prototype-web-scraping` branch)
+* Web app with Elixir, Phoenix and PostgreSQL
+
+**To get involved** be sure to join the [Open Wichita
+slack](https://openwichita.com/slack) and hop in to the #public-meetings
+channel.
+
+**Also make sure to check [the
+issues](https://github.com/openwichita/public-meetings/issues)!**
+
 **To get started:**
   * [Install elixir](http://elixir-lang.org/install.html)
     * Alternatively: use [asdf](https://github.com/asdf-vm/asdf) with the
