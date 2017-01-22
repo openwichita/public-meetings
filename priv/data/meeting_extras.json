@@ -1,14 +1,1 @@
-[
-    {
-        "id": "1",
-        "name": "agenda_final",
-        "tid": "1",
-        "value": "http://www.wichita.gov/Government/Council/Agendas/{0}-{1}-{2}%20Final%20City%20Council%20Agenda%20Packet.pdf"
-    },
-    {
-        "id": "2",
-        "name": "plat_drawings",
-        "tid": "2",
-        "value": "http://www.wichita.gov/Government/Departments/Planning/AgendasMinutes/{0}-{1}-{2}%20Subdivision%20Agenda%20-%20Plat%20drawings.pdf"
-    }
-]
+[{"id":"1","tid":"1","name":"agenda final","value":"http:\/\/www.wichita.gov\/Government\/Council\/Agendas\/{0}-{1}-{2}%20Final%20City%20Council%20Agenda%20Packet.pdf"}, {"id":"2","tid":"2","name":"plat drawings","value":"http:\/\/www.wichita.gov\/Government\/Departments\/Planning\/AgendasMinutes\/{0}-{1}-{2}%20Subdivision%20Agenda%20-%20Plat%20drawings.pdf"}, {"id":"3","tid":"26","name":"goals","value":"http:\/\/www.wichita.gov\/Government\/Departments\/Park\/Pages\/ParkBoard.aspx"}, {"id":"4","tid":"27","name":"Bylaws","value":"http:\/\/www.wichita.gov\/LivePlay\/Bicycle\/BicycleDocuments\/WBPAB%20Bylaws.pdf"}, {"id":"5","tid":"24","name":"lunch cost","value":"$15"}, {"id":"6","tid":"17","name":"lunch","value":"$5"}]

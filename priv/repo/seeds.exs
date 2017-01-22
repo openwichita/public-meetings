@@ -17,9 +17,17 @@ defmodule Meetings.DatabaseSeeder do
    alias Meetings.MeetingExtra
 
    def truncate do
+      Repo.query("ALTER TABLE meeting_dates DROP CONSTRAINT meeting_dates_meeting_type_id_fkey")
+      Repo.query("ALTER TABLE meeting_extras DROP CONSTRAINT meeting_extras_meeting_type_id_fkey")
+
       Repo.delete_all MeetingType
       Repo.delete_all MeetingDate
       Repo.delete_all MeetingExtra
+   end
+
+   def add_constraints do
+      Repo.query("ALTER TABLE meeting_dates ADD CONSTRAINT meeting_dates_meeting_type_id_fkey")
+      Repo.query("ALTER TABLE meeting_extras ADD CONSTRAINT meeting_extras_meeting_type_id_fkey")
    end
 
    def insert_type(meeting) do
@@ -68,7 +76,10 @@ end
 
 alias Meetings.DatabaseSeeder
 
-DatabaseSeeder.truncate() # Clear database
+#DatabaseSeeder.truncate()
 DatabaseSeeder.each(DatabaseSeeder.read("types"), fn meeting -> DatabaseSeeder.insert_type(meeting) end)
 DatabaseSeeder.each(DatabaseSeeder.read("dates"), fn meeting -> DatabaseSeeder.insert_date(meeting) end)
 DatabaseSeeder.each(DatabaseSeeder.read("extras"), fn meeting -> DatabaseSeeder.insert_extra(meeting) end)
+#DatabaseSeeder.add_constraints()
+
+
