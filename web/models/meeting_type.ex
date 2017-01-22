@@ -7,14 +7,16 @@ defmodule Meetings.MeetingType do
     field :title, :string
     field :description, :string
     field :location, :string
+    field :building, :string
     field :hour, :integer
     field :minute, :integer
     field :duration, :integer
     field :email, :string
     field :agenda, :string
+    field :website, :string
 
     has_many :meeting_dates, Meetings.MeetingDate
-    #has_many :meeting_extras, Meetings.MeetingExtra
+    has_many :meeting_extras, Meetings.MeetingExtra
 
     timestamps()
   end
@@ -24,7 +26,7 @@ defmodule Meetings.MeetingType do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:type, :subtype, :title, :description, :location, :hour, :minute, :duration, :email, :agenda])
-    |> validate_required([:type, :subtype, :title, :description, :location, :hour, :minute, :duration, :email, :agenda])
+    |> cast(params, [:type, :subtype, :title, :description, :location, :building, :hour, :minute, :duration, :email, :agenda, :website])
+    |> validate_required([:type, :subtype, :title, :description, :location, :building, :hour, :minute, :duration, :email, :agenda, :website])
   end
 end
