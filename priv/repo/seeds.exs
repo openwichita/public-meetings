@@ -63,6 +63,8 @@ defmodule Meetings.DatabaseSeeder do
    def each(meetings, func) do
       Enum.each(meetings, func)
    end
+
+   def setup_base_
 end
 
 
@@ -72,3 +74,8 @@ DatabaseSeeder.truncate() # Clear database
 DatabaseSeeder.each(DatabaseSeeder.read("types"), fn meeting -> DatabaseSeeder.insert_type(meeting) end)
 DatabaseSeeder.each(DatabaseSeeder.read("dates"), fn meeting -> DatabaseSeeder.insert_date(meeting) end)
 DatabaseSeeder.each(DatabaseSeeder.read("extras"), fn meeting -> DatabaseSeeder.insert_extra(meeting) end)
+
+Meetings.Repo.delete_all Meetings.User
+
+Meetings.User.changeset(%Meetings.User{}, %{name: "Test User", email: "testuser@example.com", password: "secret", password_confirmation: "secret"})
+|> Meetings.Repo.insert!
