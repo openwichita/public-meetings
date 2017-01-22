@@ -1,6 +1,9 @@
 <div class="jumbotron">
   <h2><%= gettext "Welcome to %{name}", name: "Public Meetings" %></h2>
   <p class="lead">Creating a list of civic city and county meeting events.</p>
+  <% if @current_user != nil do %>
+    <p>Logged in as: <%= @current_user.email %></p>
+  <% end %>
 </div>
 
 <div class="row marketing">

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Meetings!</title>
+    <title>Hello Admin1!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -15,18 +15,8 @@
     <div class="container">
       <header class="header">
         <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="/">Home</a></li>
-            <li><a href="/meetings">Event List</a></li>
-            <%= if @current_user == nil do %>
-              <li><%= link "Login", to: session_path(@conn, :new) %></li>
-              <li><%= link "Regiser", to: registration_path(@conn, :new) %></li>
-            <%= else %>
-              <li><%= link "Logout", to: session_path(@conn, :delete), method: :delete %></li>
-            <% end %>
-          </ul>
         </nav>
-        <h3 class="brand">Wichita Public Meetings</h3>
+        <span class="logo"></span>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

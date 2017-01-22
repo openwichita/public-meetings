@@ -19,7 +19,7 @@ defmodule Meetings.Mixfile do
   def application do
     [mod: {Meetings, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :coherence]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,6 +36,7 @@ defmodule Meetings.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:coherence, "~> 0.3"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end
