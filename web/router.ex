@@ -21,6 +21,10 @@ defmodule Meetings.Router do
 
     resources "/meeting_types", MeetingTypeController
     resources "/meeting_dates", MeetingDateController
+    resources "/meeting_extra", MeetingExtraController
+
+    # this is a fall back route incase someone types
+    # the plural of extra (github issue #11)
     resources "/meeting_extras", MeetingExtraController
   end
 
