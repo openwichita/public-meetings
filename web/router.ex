@@ -31,6 +31,7 @@ defmodule Meetings.Router do
 
     get "/", PageController, :index
     get "/meetings", MeetingController, :index
+    get "/meetings/:id", MeetingController, :show
   end
 
   scope "/", Meetings do

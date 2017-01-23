@@ -1,0 +1,78 @@
+<h2>Meeting</h2>
+
+<pre><%= inspect @meeting %></pre>
+
+<ul>
+  <li>
+    <strong>Type:</strong>
+    <%= @meeting.type %>
+  </li>
+
+  <li>
+    <strong>Subtype:</strong>
+    <%= @meeting.subtype %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @meeting.title %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @meeting.description %>
+  </li>
+
+  <li>
+    <strong>Location:</strong>
+    <%= @meeting.location %>
+  </li>
+
+  <li>
+    <strong>Hour:</strong>
+    <%= @meeting.hour %>
+  </li>
+
+  <li>
+    <strong>Minute:</strong>
+    <%= @meeting.minute %>
+  </li>
+
+  <li>
+    <strong>Duration:</strong>
+    <%= @meeting.duration %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @meeting.email %>
+  </li>
+
+  <li>
+    <strong>Agenda:</strong>
+    <%= @meeting.agenda %>
+  </li>
+</ul>
+
+<ul>
+<%= for extra <- @meeting.meeting_extras do %>
+  <li><strong><%= extra.field %>:</strong>
+    <%= extra.value %>
+  </li>
+<% end %>
+</ul>
+
+<h3>Dates</h3>
+
+<ul>
+<%= for date <- @meeting.meeting_dates do %>
+  <li><a href="/meeting_dates/<%= date.id %>/edit"><%= date.month %>/<%= date.day %>, <%= date.year %></a>
+  </li>
+<% end %>
+</ul>
+
+
+
+<%= link "Edit", to: meeting_type_path(@conn, :edit, @meeting) %>
+&nbsp;
+<%= link "Back", to: meeting_path(@conn, :index) %>
