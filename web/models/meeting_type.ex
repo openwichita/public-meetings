@@ -14,7 +14,7 @@ defmodule Meetings.MeetingType do
     field :agenda, :string
 
     has_many :meeting_dates, Meetings.MeetingDate
-    #has_many :meeting_extras, Meetings.MeetingExtra
+    has_many :meeting_extras, Meetings.MeetingExtra
 
     timestamps()
   end
