@@ -1,29 +1,27 @@
-<h2>2017 Meetings: <%= length(@meetings) %></h2>
-
 <pre><%= inspect @meetings %></pre>
 
-<table class="table">
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Title</th>
-      <th>Duration</th>
-      <th>Location</th>
-      <th></th>
+      <th colspan="2"><h2>2017 Meetings: <%= length(@meetings) %></h2></th>
     </tr>
   </thead>
   <tbody>
-  <%= for meeting <- @meetings do %>
-    <tr>
-      <td><%= DateTime.to_date(meeting.date) %></td>
-      <td><%= DateTime.to_time(meeting.date) %></td>
-      <td><%= meeting.title %></td>
-      <td><%= meeting.duration %> min</td>
-      <td><a href="http://maps.google.com?q=<%= meeting.location %>"><%= meeting.location %></a></td>
-      <td><a href="/meetings/to_ics">Add to calendar</a></td>
-    </tr>
-  <% end %>
+    <%= for meeting <- @meetings do %>
+      <tr>
+        <td>
+          <h3><%= meeting.title %></h3>
+          <p>
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %> mins.
+          </p>
+          <p>
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <a href="http://maps.google.com?q=<%= meeting.location %>"><%= meeting.location %></a>
+          </p>
+        </td>
+        <td>
+          <a href="/meetings/to_ics">Add to calendar</a>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
-
