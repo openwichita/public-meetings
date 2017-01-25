@@ -15,7 +15,7 @@ defmodule Meetings.MeetingDate do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:month, :day, :year])
-    |> validate_required([:month, :day, :year])
+    |> cast(params, [:meeting_type_id, :month, :day, :year])
+    |> validate_required([:meeting_type_id, :month, :day, :year])
   end
 end

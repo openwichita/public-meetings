@@ -2,8 +2,8 @@
 
 <ul>
   <li>
-    <strong>Type:</strong>
-    <a href="/meeting_types/<%= @meeting.id %>"><%= @meeting.type %></a>
+    <strong><a href="/meeting_types/<%= @meeting.id %>">Type</a>:</strong>
+    <%= @meeting.type %>
   </li>
 
   <li>
@@ -54,8 +54,9 @@
 
 <ul>
 <%= for extra <- @meeting.meeting_extras do %>
-  <li><strong><%= extra.field %>:</strong>
-    <a href="/meeting_extras/<%= extra.id %>"><%= extra.value %></a>
+  <li>
+    <strong><a href="/meeting_extras/<%= extra.id %>"><%= extra.field %></a>:</strong>
+    <%= extra.value %></a>
   </li>
 <% end %>
 </ul>

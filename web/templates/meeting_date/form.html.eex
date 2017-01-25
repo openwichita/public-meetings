@@ -5,6 +5,12 @@
     </div>
   <% end %>
 
+   <div class="form-group">
+    <%= label f, :meeting_type_id, class: "control-label" %>
+    <%= number_input f, :meeting_type_id, class: "form-control" %>
+    <%= error_tag f, :id %>
+  </div>
+
   <div class="form-group">
     <%= label f, :month, class: "control-label" %>
     <%= number_input f, :month, class: "form-control" %>
