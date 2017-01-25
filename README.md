@@ -13,6 +13,10 @@ channel.
 **Also make sure to check [the
 issues](https://github.com/openwichita/public-meetings/issues)!**
 
+
+**View temporary meeting list with latest updates**
+http://public-meetings.website/meetings
+
 **To get started:**
   * [Install elixir](http://elixir-lang.org/install.html)
     * Alternatively: use [asdf](https://github.com/asdf-vm/asdf) with the
