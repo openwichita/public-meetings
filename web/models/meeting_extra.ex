@@ -14,7 +14,7 @@ defmodule Meetings.MeetingExtra do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:field, :value])
-    |> validate_required([:field, :value])
+    |> cast(params, [:meeting_type_id, :field, :value])
+    |> validate_required([:meeting_type_id, :field, :value])
   end
 end
