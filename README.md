@@ -37,14 +37,32 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 ## Meetings scraped/aggregated so far:
 
   * Council
+      * Regular
+      * Consent Workshop
   * Mayor's Briefings
+  * City Agenda Review
   * County Commission
   * County Staff
+  * Metropolitan Area Planning Commission
   * Board of Education
-  * Building Board
+      * Regular
+      * Committee of the Whole
+      * 99% Awards
+      * Good Apples
+      * Special
+      * Year-End Meeting
   * Airport Board
-  * Mechanical Board
+  * Animal Control Advisory Board
+  * Bicycle & Pedestrian Advisory Board
   * Board of Code Standards
+   * Board of Electrical Appeals
+  * Building Board
   * District Advisory Boards
+      *  I - VI
+  * Mechanical Board
+  * Park Board
+  * Plumbers and Gas fitters Board Of Appeals
   * Subdivision and Utility Advisory
-  
+  * Wichita Transit Advisory Board
+  * League of Women Voters
+  * Wichita Pachyderm Club
