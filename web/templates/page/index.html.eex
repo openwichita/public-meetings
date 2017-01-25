@@ -27,12 +27,12 @@
       </li>
       <li>
         <p><a href="/meeting_dates">Meeting Dates</a></p>
-        <p><a href="meeting_types/new">Add Date</a></p>
+        <p><a href="meeting_dates/new">Add Date</a></p>
       </li>
 
       <li>
-        <p><a href="/meeting_extra">Meeting Additional Information</a>
-        <p><a href="meeting_extra/new">Add Extra</a>
+        <p><a href="/meeting_extras">Meeting Additional Information</a>
+        <p><a href="meeting_extras/new">Add Extra Field</a>
       </li>
     </ul>
   </div>

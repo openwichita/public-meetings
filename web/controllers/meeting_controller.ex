@@ -12,4 +12,9 @@ defmodule Meetings.MeetingController do
     meeting_data = Meeting.get(id)
     render(conn, "show.html", meeting: meeting_data)
   end
+
+  def ical(conn, %{"id" => id}) do
+    event = Meeting.to_ical(id)
+    render(conn, "ical.html", event: event)
+  end
 end
