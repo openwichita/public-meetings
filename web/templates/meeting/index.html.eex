@@ -13,11 +13,11 @@
             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %> mins.
           </p>
           <p>
-            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <a href="http://maps.google.com?q=<%= meeting.location %>"><%= meeting.location %></a>
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <a href="http://maps.google.com?q=<%= meeting.location %>" target="_blank"><%= meeting.location %></a>
           </p>
         </td>
         <td>
-          <a href="/meetings/to_ics">Add to calendar</a> (not implemented yet!)
+          <a class="btn btn-default btn-xs" href="/meetings/ical/<%= meeting.id %>">Add</a>
         </td>
       </tr>
     <% end %>
