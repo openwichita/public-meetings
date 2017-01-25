@@ -1,5 +1,3 @@
-<pre><%= inspect @meetings %></pre>
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -10,7 +8,7 @@
     <%= for meeting <- @meetings do %>
       <tr>
         <td>
-          <h3><%= meeting.title %></h3>
+          <h3><a href="/meetings/<%= meeting.id %>"><%= meeting.title %></a></h3>
           <p>
             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %> mins.
           </p>
@@ -19,7 +17,7 @@
           </p>
         </td>
         <td>
-          <a href="/meetings/to_ics">Add to calendar</a>
+          <a href="/meetings/to_ics">Add to calendar</a> (not implemented yet!)
         </td>
       </tr>
     <% end %>

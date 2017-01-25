@@ -1,11 +1,9 @@
 <h2>Meeting</h2>
 
-<pre><%= inspect @meeting %></pre>
-
 <ul>
   <li>
     <strong>Type:</strong>
-    <%= @meeting.type %>
+    <a href="/meeting_types/<%= @meeting.id %>"><%= @meeting.type %></a>
   </li>
 
   <li>
@@ -57,7 +55,7 @@
 <ul>
 <%= for extra <- @meeting.meeting_extras do %>
   <li><strong><%= extra.field %>:</strong>
-    <%= extra.value %>
+    <a href="/meeting_extras/<%= extra.id %>"><%= extra.value %></a>
   </li>
 <% end %>
 </ul>
@@ -66,7 +64,7 @@
 
 <ul>
 <%= for date <- @meeting.meeting_dates do %>
-  <li><a href="/meeting_dates/<%= date.id %>/edit"><%= date.month %>/<%= date.day %>, <%= date.year %></a>
+  <li><a href="/meeting_dates/<%= date.id %>"><%= date.month %>/<%= date.day %>, <%= date.year %></a>
   </li>
 <% end %>
 </ul>
