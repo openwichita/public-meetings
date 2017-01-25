@@ -48,7 +48,7 @@
 
   <li>
     <strong>Agenda:</strong>
-    <%= @meeting.agenda %>
+    <a href="<%= @meeting.agenda %>" target="_blank"><%= @meeting.agenda %></a>
   </li>
 </ul>
 
@@ -56,7 +56,12 @@
 <%= for extra <- @meeting.meeting_extras do %>
   <li>
     <strong><a href="/meeting_extras/<%= extra.id %>"><%= extra.field %></a>:</strong>
-    <%= extra.value %></a>
+    <%= if (extra.field == "website") do %>
+      <a href=" <%= extra.value %>" target="_blank"><%= extra.value %></a>
+    <% else %>
+      <%= extra.value %>
+    <% end %>
+    </a>
   </li>
 <% end %>
 </ul>
