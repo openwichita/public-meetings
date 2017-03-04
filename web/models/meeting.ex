@@ -38,10 +38,15 @@ defmodule Meetings.Meeting do
 
     query = from mt in MeetingType,
       join: md in MeetingDate, where: md.meeting_type_id == mt.id
+
+    now = DateTime.utc_now()
+
+    # ^(now.year) and md.month = ^(now.month) and md.day >= ^(now.day),
     
     # Extend the query
     query = from [mt, md] in query,
       select: {mt.id, mt.title, mt.location, md.year, md.month, md.day, mt.hour, mt.minute, mt.duration},
+      where: md.year == ^(now.year) and md.month >= ^(now.month) and md.day >= ^(now.day),
       order_by: [md.year, md.month, md.day]
 
     data = Repo.all(query)
