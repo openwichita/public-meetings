@@ -33,7 +33,7 @@ defmodule Meetings.Meeting do
 
   # Create a list of meeting events
   # Need joined list of meetings, not list of dates within each meeting (Repo.all)
-  def list do
+  def list(mtype \\ "") do
     import Ecto.Query
 
     query = from mt in MeetingType,
@@ -48,6 +48,14 @@ defmodule Meetings.Meeting do
       select: {mt.id, mt.title, mt.location, md.year, md.month, md.day, mt.hour, mt.minute, mt.duration},
       where: md.year == ^(now.year) and md.month >= ^(now.month) and md.day >= ^(now.day),
       order_by: [md.year, md.month, md.day]
+
+
+    IO.puts mtype
+    query = if (String.length(mtype) != 0) do
+      query |> where([mt], mt.type == ^(mtype))
+    else
+      query
+    end
 
     data = Repo.all(query)
     Enum.map(data, fn md -> new(md) end)

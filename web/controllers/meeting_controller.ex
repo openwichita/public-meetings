@@ -3,6 +3,12 @@ defmodule Meetings.MeetingController do
 
   alias Meetings.Meeting
 
+  def index(conn, %{"type" => mtype} = params) do
+    IO.puts mtype
+    meetings = Meeting.list(mtype)
+    render(conn, "index.html", meetings: meetings)
+  end
+
   def index(conn, _params) do
     meetings = Meeting.list
     render(conn, "index.html", meetings: meetings)
