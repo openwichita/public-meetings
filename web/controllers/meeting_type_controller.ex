@@ -28,6 +28,7 @@ defmodule Meetings.MeetingTypeController do
 
   def show(conn, %{"id" => id}) do
     meeting_type = Repo.get!(MeetingType, id)
+    |> Repo.preload(:meeting_dates)
     render(conn, "show.html", meeting_type: meeting_type)
   end
 

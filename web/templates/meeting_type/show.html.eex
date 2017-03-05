@@ -54,5 +54,15 @@
 
 </ul>
 
+
+<h3>Dates</h3>
+
+<ul>
+<%= for date <- @meeting_type.meeting_dates do %>
+  <li><a href="/meeting_dates/<%= date.id %>"><%= date.month %>/<%= date.day %>, <%= date.year %></a>
+  </li>
+<% end %>
+</ul>
+
 <%= link "Edit", to: meeting_type_path(@conn, :edit, @meeting_type) %>
 <%= link "Back", to: meeting_type_path(@conn, :index) %>
