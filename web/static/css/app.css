@@ -32,3 +32,11 @@
     background-color: #eee;
 }
 /* End nav-pill fix */
+
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}

@@ -31,6 +31,11 @@ form.link, form.button {
   margin-bottom: 0.8em;
 }
 
+#mainLogo {
+	text-decoration: none;
+	color: inherit;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing {
