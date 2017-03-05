@@ -50,7 +50,6 @@ defmodule Meetings.Meeting do
       order_by: [md.year, md.month, md.day]
 
 
-    IO.puts mtype
     query = if (String.length(mtype) != 0) do
       query |> where([mt], mt.type == ^(mtype))
     else

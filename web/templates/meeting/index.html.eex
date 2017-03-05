@@ -1,7 +1,14 @@
+<h3>Note: adding <a href="/meetings/types">meeting filter</a> to url based on type.</h3>
 <table class="table table-hover">
   <thead>
     <tr>
-      <th colspan="2"><h2>2017 Meetings: <%= length(@meetings) %></h2></th>
+      <th colspan="2"><h2>2017 Meetings: <%= length(@meetings) %> <%= @title %> 
+      <%= if length(@meetings) == 1 do %>
+        Meeting
+      <% else %>
+        Meetings
+      <% end %>
+      </h2></th>
     </tr>
   </thead>
   <tbody>
@@ -10,7 +17,7 @@
         <td>
           <h3><a href="/meetings/<%= meeting.id %>"><%= meeting.title %></a></h3>
           <p>
-            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %> mins.
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %> 
           </p>
           <p>
             <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <a href="http://maps.google.com?q=<%= meeting.location %>" target="_blank"><%= meeting.location %></a>

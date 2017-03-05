@@ -1,0 +1,16 @@
+<h1>Meeting Type List:</h1>
+
+<form action="/meetings" method="get">
+  <select name="mtype" onchange=''>
+    <%= for meeting_type <- @types do %>
+      <option value="<%= meeting_type.type %>"><%= meeting_type.title %></option>
+    <% end %>
+  </select>
+</form>
+
+
+<ol>
+<%= for meeting_type <- @types do %>
+  <li><a href="/meetings?type=<%= meeting_type.type %>&title=<%= meeting_type.title %>"><%= meeting_type.title %></a></li>
+<% end %>
+</ol>

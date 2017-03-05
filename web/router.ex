@@ -31,6 +31,7 @@ defmodule Meetings.Router do
 
     get "/", PageController, :index
     get "/meetings", MeetingController, :index
+    get "/meetings/types", MeetingController, :types
     get "/meetings/:id", MeetingController, :show
     get "/meetings/ical/:id", MeetingController, :ical
   end
