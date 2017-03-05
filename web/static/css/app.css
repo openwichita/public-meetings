@@ -1,1 +1,34 @@
 /* This file is for your main application css. */
+
+/* Start fix for nav-pill a tag inside
+   form tag */
+.nav-pills > li > form > a {
+	border-radius: 4px;
+}
+
+.nav-pills > li > form > a:hover {
+	color: rgb(35, 82, 124);
+    background-color: rgb(238, 238, 238);
+}
+
+.nav-pills > li > form > a:focus {
+	color: rgb(35, 82, 124);
+    background-color: rgb(238, 238, 238);
+}
+
+.nav > li > form > a {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+}
+
+.nav > li > form > a:hover {
+	text-decoration: none;
+    background-color: #eee;
+}
+
+.nav > li > form > a:focus {
+	text-decoration: none;
+    background-color: #eee;
+}
+/* End nav-pill fix */
