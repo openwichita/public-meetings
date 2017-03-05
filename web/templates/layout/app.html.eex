@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="A list of Wichita Public Meetings">
+    <meta name="author" content="Open Wichita">
 
-    <title>Hello Meetings!</title>
+    <title>Wichita Public Meetings</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -26,7 +26,7 @@
             <% end %>
           </ul>
         </nav>
-        <h3 class="brand">Wichita Public Meetings</h3>
+        <h3 class="brand"><a id="mainLogo" href="/">Wichita Public Meetings</a></h3>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
