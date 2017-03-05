@@ -17,7 +17,7 @@
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
             <li><a href="/">Home</a></li>
-            <li><a href="/meetings">Event List</a></li>
+            <li><a href="/meetings">Meetings</a></li>
             <%= if @current_user == nil do %>
               <li><%= link "Login", to: session_path(@conn, :new) %></li>
               <li><%= link "Register", to: registration_path(@conn, :new) %></li>
@@ -39,4 +39,9 @@
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
+  <footer>
+    <p>
+      Supported by <a href="http://openwichita.com/" target="_blank">Open Wichita</a>.
+    </p>
+  </footer>
 </html>

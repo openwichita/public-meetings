@@ -1,12 +1,12 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Public Meetings" %></h2>
-  <p class="lead">Creating a list of civic city and county meeting events.</p>
+  <h2>Participate in your local meetings</h2>
+  <p class="lead">Click on the meeting link for a list of upcoming meetings.</p>
   <% if @current_user != nil do %>
     <p>Logged in as: <%= @current_user.email %></p>
   <% end %>
 </div>
 
-<div class="row marketing">
+<div class="row marketing" style="display: none;">
   <div class="col-lg-6">
     <h4>Meeting List</h4>
     <p>List of meeting events (date, title, location) that have been scraped so far.</p>
@@ -17,7 +17,7 @@
     </ul>
   </div>
 
-  <div class="col-lg-6">
+  <div class="col-lg-6" style="display: none;">
     <h4>Crud Routes</h4>
     <p>Index/New for each model/database table.</p>
     <ul>
