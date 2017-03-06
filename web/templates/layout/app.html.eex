@@ -39,6 +39,7 @@
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
+  
   <footer>
     <p>
       Supported by <a href="http://openwichita.com/" target="_blank">Open Wichita</a>.
