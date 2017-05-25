@@ -5,12 +5,20 @@ defmodule Meetings.MeetingController do
 
   def index(conn, %{"type" => mtype, "title" => title} = params) do
     meetings = Meeting.list(mtype)
-    render(conn, "index.html", meetings: meetings, title: title)
+
+    case Map.get(params, "format") do
+      "ics" -> ical_response_meetings(conn, meetings)
+      _ -> render(conn, "index.html", meetings: meetings, title: title)
+    end
   end
 
-  def index(conn, _params) do
+  def index(conn, params) do
     meetings = Meeting.list
-    render(conn, "index.html", meetings: meetings, title: "All")
+
+    case Map.get(params, "format") do
+      "ics" -> ical_response_meetings(conn, meetings)
+      _ -> render(conn, "index.html", meetings: meetings, title: "All")
+    end
   end
 
   def types(conn, _params) do
@@ -18,13 +26,25 @@ defmodule Meetings.MeetingController do
     render(conn, "types.html", types: meeting_types)
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"id" => id} = params) do
     meeting_data = Meeting.get(id)
-    render(conn, "show.html", meeting: meeting_data)
+
+    case Map.get(params, "format") do
+      "ics" -> ical_response_meetings(conn, [meeting_data])
+      _ -> render(conn, "show.html", meeting: meeting_data)
+    end
   end
 
-  def ical(conn, %{"id" => id}) do
-    event = Meeting.to_ical(id)
-    render(conn, "ical.html", event: event)
+  defp ical_response_meetings(conn, meetings) do
+    events = Enum.map(meetings, fn meeting -> Meeting.to_ical(meeting) end)
+    conn |> ical_response(events)
+  end
+
+  defp ical_response(conn, events) do
+    ics_content = %ICalendar{ events: events } |> ICalendar.to_ics
+    conn
+    |> put_resp_content_type("text/meeting")
+    |> put_resp_header("content-disposition", "attachment; filename=events.ics")
+    |> send_resp(200, ics_content)
   end
 end

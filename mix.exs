@@ -36,9 +36,11 @@ defmodule Meetings.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:coherence, "~> 0.3"},
+     {:coherence, git: "git://github.com/smpallen99/coherence.git"},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:timex, "~> 3.0"},
+     {:icalendar, "~> 0.2.2"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

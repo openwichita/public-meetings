@@ -10,22 +10,22 @@ defmodule Meetings.Meeting do
 
   # create new struct with data based on defstruct above
   def new(data) do
-    %__MODULE__{ 
+    %__MODULE__{
       id: elem(data, 0),
       title: elem(data, 1),
       location: elem(data, 2),
       date: %DateTime{
-        calendar: Calendar.ISO, 
-        time_zone: "CST/UTC", 
-        zone_abbr: "CST", 
-        std_offset: 6, 
+        calendar: Calendar.ISO,
+        time_zone: "America/Chicago",
+        zone_abbr: "CST",
+        std_offset: 6,
         utc_offset: 6,
-        year: elem(data, 3), 
-        month: elem(data, 4), 
-        day: elem(data, 5), 
-        hour: elem(data, 6), 
-        minute: elem(data, 7), 
-        second: 0 
+        year: elem(data, 3),
+        month: elem(data, 4),
+        day: elem(data, 5),
+        hour: elem(data, 6),
+        minute: elem(data, 7),
+        second: 0
       },
       duration: elem(data, 8)
    }
@@ -41,14 +41,11 @@ defmodule Meetings.Meeting do
 
     now = DateTime.utc_now()
 
-    # ^(now.year) and md.month = ^(now.month) and md.day >= ^(now.day),
-    
     # Extend the query
     query = from [mt, md] in query,
       select: {mt.id, mt.title, mt.location, md.year, md.month, md.day, mt.hour, mt.minute, mt.duration},
       where: md.year == ^(now.year) and md.month >= ^(now.month) and md.day >= ^(now.day),
       order_by: [md.year, md.month, md.day]
-
 
     query = if (String.length(mtype) != 0) do
       query |> where([mt], mt.type == ^(mtype))
@@ -62,7 +59,7 @@ defmodule Meetings.Meeting do
 
   # Need to load db table models since has_many relationship
   def preload(query) do
-    query 
+    query
     |> Repo.preload(:meeting_dates)
     |> Repo.preload(:meeting_extras)
   end
@@ -88,15 +85,23 @@ defmodule Meetings.Meeting do
     |> Repo.preload(:meeting_types)
   end
 
-  # list of all meeting extra fieds preloaded with meeting_type for each date
+  # list of all meeting extra fields preloaded with meeting_type for each date
   def extras do
     Repo.all(MeetingExtra)
     |> Repo.preload(:meeting_types)
   end
 
-  # convert to ical event ics byte string
-  def to_ical(id) do
-    event = get_event(id)
-    event # needs to be converted
+  # convert to ical event
+  def to_ical(meeting) do
+    event = get(meeting.id)
+    datetime = meeting.date
+
+    %ICalendar.Event{
+      summary: event.title,
+      dtstart: datetime,
+      dtend: Timex.shift(datetime, minutes: event.duration),
+      description: event.description,
+      location: event.location
+    }
   end
 end

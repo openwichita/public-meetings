@@ -1,4 +1,5 @@
 defmodule Meetings.Coherence.Web do
+  @moduledoc false
 
   def view do
     quote do
@@ -13,7 +14,6 @@ defmodule Meetings.Coherence.Web do
       import Meetings.ErrorHelpers
       import Meetings.Gettext
       import Meetings.Coherence.ViewHelpers
-
     end
   end
 

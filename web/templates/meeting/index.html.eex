@@ -2,12 +2,13 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th colspan="2"><h2>2017 Meetings: <%= length(@meetings) %> <%= @title %> 
+      <th colspan="2"><h2>2017 Meetings: <%= length(@meetings) %> <%= @title %>
       <%= if length(@meetings) == 1 do %>
         Meeting
       <% else %>
         Meetings
       <% end %>
+      <a class="btn btn-default btn-xs pull-right" href="/meetings/?<%= URI.encode_query(Map.put(@conn.params, "format", "ics")) %>">Add All</a>
       </h2></th>
     </tr>
   </thead>
@@ -17,14 +18,14 @@
         <td>
           <h3><a href="/meetings/<%= meeting.id %>"><%= meeting.title %></a></h3>
           <p>
-            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %> 
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %>
           </p>
           <p>
             <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <a href="http://maps.google.com?q=<%= meeting.location %>" target="_blank"><%= meeting.location %></a>
           </p>
         </td>
         <td>
-          <a class="btn btn-default btn-xs" href="/meetings/ical/<%= meeting.id %>">Add</a>
+          <a class="btn btn-default btn-xs" href="/meetings/<%= meeting.id %>/?format=ics">Add</a>
         </td>
       </tr>
     <% end %>
