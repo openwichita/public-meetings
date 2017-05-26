@@ -6,28 +6,29 @@ defmodule Meetings.Meeting do
   alias Meetings.Repo
 
 
-  defstruct id: 0, title: "", location: "", date: DateTime.utc_now(), duration: 0
+  defstruct type_id: 0, title: "", location: "", date_id: 0, date: DateTime.utc_now(), duration: 0
 
   # create new struct with data based on defstruct above
   def new(data) do
     %__MODULE__{
-      id: elem(data, 0),
-      title: elem(data, 1),
-      location: elem(data, 2),
+      type_id: data.type_id,
+      title: data.title,
+      location: data.location,
+      date_id: data.date_id,
       date: %DateTime{
         calendar: Calendar.ISO,
         time_zone: "America/Chicago",
         zone_abbr: "CST",
         std_offset: 6,
         utc_offset: 6,
-        year: elem(data, 3),
-        month: elem(data, 4),
-        day: elem(data, 5),
-        hour: elem(data, 6),
-        minute: elem(data, 7),
+        year: data.year,
+        month: data.month,
+        day: data.day,
+        hour: data.hour,
+        minute: data.minute,
         second: 0
       },
-      duration: elem(data, 8)
+      duration: data.duration
    }
   end
 
@@ -43,7 +44,16 @@ defmodule Meetings.Meeting do
 
     # Extend the query
     query = from [mt, md] in query,
-      select: {mt.id, mt.title, mt.location, md.year, md.month, md.day, mt.hour, mt.minute, mt.duration},
+      select: %{type_id: mt.id,
+                title: mt.title,
+                location: mt.location,
+                date_id: md.id,
+                year: md.year,
+                month: md.month,
+                day: md.day,
+                hour: mt.hour,
+                minute: mt.minute,
+                duration: mt.duration},
       where: md.year == ^(now.year) and md.month >= ^(now.month) and md.day >= ^(now.day),
       order_by: [md.year, md.month, md.day]
 
@@ -62,6 +72,21 @@ defmodule Meetings.Meeting do
     query
     |> Repo.preload(:meeting_dates)
     |> Repo.preload(:meeting_extras)
+  end
+
+  def from_meeting_date(id) do
+    meeting_date = get_event(id)
+    meeting_type = meeting_date.meeting_type
+    new(%{type_id: meeting_type.id,
+          title: meeting_type.title,
+          location: meeting_type.location,
+          date_id: meeting_date.id,
+          year: meeting_date.year,
+          month: meeting_date.month,
+          day: meeting_date.day,
+          hour: meeting_type.hour,
+          minute: meeting_type.minute,
+          duration: meeting_type.duration})
   end
 
   def get(id) do
@@ -93,7 +118,7 @@ defmodule Meetings.Meeting do
 
   # convert to ical event
   def to_ical(meeting) do
-    event = get(meeting.id)
+    event = get(meeting.type_id)
     datetime = meeting.date
 
     %ICalendar.Event{

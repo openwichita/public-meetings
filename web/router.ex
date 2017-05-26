@@ -41,6 +41,7 @@ defmodule Meetings.Router do
     get "/meetings", MeetingController, :index
     get "/meetings/types", MeetingController, :types
     get "/meetings/:id", MeetingController, :show
+    get "/meetings/:type_id/date/:date_id", MeetingController, :show_date
   end
 
   scope "/", Meetings do

@@ -28,10 +28,17 @@ defmodule Meetings.MeetingController do
 
   def show(conn, %{"id" => id} = params) do
     meeting_data = Meeting.get(id)
+    render(conn, "show.html", meeting: meeting_data)
+  end
+
+  def show_date(conn, %{"type_id" => type_id, "date_id" => date_id} = params) do
+    meeting = Meeting.from_meeting_date(date_id)
 
     case Map.get(params, "format") do
-      "ics" -> ical_response_meetings(conn, [meeting_data])
-      _ -> render(conn, "show.html", meeting: meeting_data)
+      "ics" -> ical_response_meetings(conn, [meeting])
+      # TODO: this doesn't actually work at the moment, but probably useful to
+      # have a display page for a single meeting at some point
+      _ -> render(conn, "show.html", meeting: meeting)
     end
   end
 

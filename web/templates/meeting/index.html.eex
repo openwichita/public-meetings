@@ -16,7 +16,7 @@
     <%= for meeting <- @meetings do %>
       <tr>
         <td>
-          <h3><a href="/meetings/<%= meeting.id %>"><%= meeting.title %></a></h3>
+          <h3><a href="/meetings/<%= meeting.type_id %>"><%= meeting.title %></a></h3>
           <p>
             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %>
           </p>
@@ -25,7 +25,7 @@
           </p>
         </td>
         <td>
-          <a class="btn btn-default btn-xs" href="/meetings/<%= meeting.id %>/?format=ics">Add</a>
+          <a class="btn btn-default btn-xs" href="/meetings/<%= meeting.type_id %>/date/<%= meeting.date_id %>/?format=ics">Add</a>
         </td>
       </tr>
     <% end %>
