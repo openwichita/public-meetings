@@ -6,6 +6,14 @@
   <% end %>
 </div>
 
+<div>
+  <p class="large">The purpose of this site is to provide a list of civic meetings grouped by data and type open to the public which can be added to one's calendar.</p>
+
+  <h3><a href="/meetings">List of Meetings</a></h3>
+
+  <p><img class="meetings" src="/images/meeting.jpg"></p>
+</div>
+
 <div class="row marketing" style="display: none;">
   <div class="col-lg-6">
     <h4>Meeting List</h4>

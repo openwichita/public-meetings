@@ -34,6 +34,15 @@
 /* End nav-pill fix */
 
 
+.meetings {
+  width: 320px;
+  margin: 10px 0 0 260px;
+}
+
+.large {
+  font-size: 1.2em;
+}
+
 footer {
   position: fixed;
   right: 0;
