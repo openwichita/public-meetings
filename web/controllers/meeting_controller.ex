@@ -4,7 +4,7 @@ defmodule Meetings.MeetingController do
   alias Meetings.Meeting
 
   def index(conn, %{"type" => mtype, "title" => title} = params) do
-    meetings = Meeting.list(mtype)
+    meetings = Meeting.list(mtype) |> Enum.map(&meeting_tuple/1)
 
     case Map.get(params, "format") do
       "ics" -> ical_response_meetings(conn, meetings)
@@ -13,7 +13,7 @@ defmodule Meetings.MeetingController do
   end
 
   def index(conn, params) do
-    meetings = Meeting.list
+    meetings = Meeting.list |> Enum.map(&meeting_tuple/1)
 
     case Map.get(params, "format") do
       "ics" -> ical_response_meetings(conn, meetings)
@@ -40,6 +40,10 @@ defmodule Meetings.MeetingController do
       # have a display page for a single meeting at some point
       _ -> render(conn, "show.html", meeting: meeting)
     end
+  end
+
+  defp meeting_tuple(meeting) do
+      {meeting, Meeting.to_ical(meeting)}
   end
 
   defp ical_response_meetings(conn, meetings) do

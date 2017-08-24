@@ -13,8 +13,8 @@
     </tr>
   </thead>
   <tbody>
-    <%= for meeting <- @meetings do %>
-      <tr>
+    <%= for {meeting, meeting_ics} <- @meetings do %>
+      <tr class="meeting">
         <td>
           <h3><a href="/meetings/<%= meeting.type_id %>"><%= meeting.title %></a></h3>
           <p>
@@ -25,7 +25,15 @@
           </p>
         </td>
         <td>
-          <a class="btn btn-default btn-xs" href="/meetings/<%= meeting.type_id %>/date/<%= meeting.date_id %>/?format=ics">Add</a>
+          <span class="addtocalendar atc-style-blue">
+              <var class="atc_event">
+                  <var class="atc_date_start"><%= Timex.format!(meeting_ics.dtstart, "{ISOdate} {ISOtime}") %></var>
+                  <var class="atc_date_end"><%= Timex.format!(meeting_ics.dtend, "{ISOdate} {ISOtime}") %></var>
+                  <var class="atc_timezone">America/Chicago</var>
+                  <var class="atc_title"><%= meeting_ics.summary %></var>
+                  <var class="atc_location"><%= meeting_ics.location %></var>
+              </var>
+          </span>
         </td>
       </tr>
     <% end %>
