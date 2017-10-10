@@ -39,6 +39,14 @@
   margin: 10px 0 0 260px;
 }
 
+tr.meeting h3 {
+  margin-top: 0;
+}
+
+tr.meeting .addtocalendar {
+  float: right;
+}
+
 .large {
   font-size: 1.2em;
 }

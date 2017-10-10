@@ -10,24 +10,17 @@ defmodule Meetings.Meeting do
 
   # create new struct with data based on defstruct above
   def new(data) do
+    datetime = Timex.to_datetime(
+      {{data.year, data.month, data.day}, {data.hour, data.minute, 0}},
+      "America/Chicago"
+    )
+
     %__MODULE__{
       type_id: data.type_id,
       title: data.title,
       location: data.location,
       date_id: data.date_id,
-      date: %DateTime{
-        calendar: Calendar.ISO,
-        time_zone: "America/Chicago",
-        zone_abbr: "CST",
-        std_offset: 6,
-        utc_offset: 6,
-        year: data.year,
-        month: data.month,
-        day: data.day,
-        hour: data.hour,
-        minute: data.minute,
-        second: 0
-      },
+      date: datetime,
       duration: data.duration
    }
   end
