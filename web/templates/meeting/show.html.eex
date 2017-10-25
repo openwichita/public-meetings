@@ -48,7 +48,7 @@
 
   <li>
     <strong>Agenda:</strong>
-    <a href="<%= @meeting.agenda %>" target="_blank"><%= @meeting.agenda %></a>
+    <a href="<%= @meeting.agenda %>" target="_blank" rel="noreferrer noopener"><%= @meeting.agenda %></a>
   </li>
 </ul>
 
@@ -57,7 +57,7 @@
   <li>
     <strong><a href="/meeting_extras/<%= extra.id %>"><%= extra.field %></a>:</strong>
     <%= if (extra.field == "website") do %>
-      <a href=" <%= extra.value %>" target="_blank"><%= extra.value %></a>
+      <a href=" <%= extra.value %>" target="_blank" rel="noreferrer noopener"><%= extra.value %></a>
     <% else %>
       <%= extra.value %>
     <% end %>

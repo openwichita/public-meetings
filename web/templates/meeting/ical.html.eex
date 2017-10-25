@@ -2,9 +2,9 @@
 
 <p>This needs to be turned into a downloadable ics file.</p>
 
-<p>See: <a href="https://github.com/openwichita/public-meetings/blob/prototype-web-scraping/files/data_science_meeting_5_1_2017.ics" target="_blank">Example ics file</a></p>
+<p>See: <a href="https://github.com/openwichita/public-meetings/blob/prototype-web-scraping/files/data_science_meeting_5_1_2017.ics" target="_blank" rel="noreferrer noopener">Example ics file</a></p>
 
-<p>Github issue: <a href="https://github.com/openwichita/public-meetings/issues/22" target="_blank">Github Issue</a></p>
+<p>Github issue: <a href="https://github.com/openwichita/public-meetings/issues/22" target="_blank" rel="noreferrer noopener">Github Issue</a></p>
 
 
 <pre><strong>Meeting Event:</strong><%= inspect @event, pretty: true %></pre>

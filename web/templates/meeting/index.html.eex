@@ -21,7 +21,7 @@
             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %>
           </p>
           <p>
-            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <a href="http://maps.google.com?q=<%= meeting.location %>" target="_blank"><%= meeting.location %></a>
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <a href="http://maps.google.com?q=<%= meeting.location %>" target="_blank" rel="noreferrer noopener"><%= meeting.location %></a>
           </p>
         </td>
         <td>
