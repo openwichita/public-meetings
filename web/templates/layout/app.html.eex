@@ -51,7 +51,7 @@
 
   <footer>
     <p>
-      Supported by <a href="http://openwichita.com/" target="_blank">Open Wichita</a>.
+      Supported by <a href="http://openwichita.com/" target="_blank" rel="noreferrer noopener">Open Wichita</a>.
     </p>
   </footer>
 </html>
