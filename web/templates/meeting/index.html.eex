@@ -18,7 +18,8 @@
         <td>
           <h3><a href="/meetings/<%= meeting.type_id %>"><%= meeting.title %></a></h3>
           <p>
-            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= DateTime.to_date(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= DateTime.to_time(meeting.date) %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= meeting.duration %>
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <%= Timex.format!(meeting.date, "{Mshort}. {D}, {YYYY}") %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= Timex.format!(meeting.date, "{h12}:{m} {AM}") %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
+            <%= Timex.Format.Duration.Formatter.format(Timex.Duration.from_minutes(meeting.duration), :humanized) %>
           </p>
           <p>
             <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <a href="http://maps.google.com?q=<%= meeting.location %>" target="_blank" rel="noreferrer noopener"><%= meeting.location %></a>
